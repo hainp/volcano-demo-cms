@@ -1,0 +1,87 @@
+
+---------------------------
+Version: 1.0.22 :
+Relocated some code.
+
+---------------------------
+Version: 1.0.21 :
+Deleted some unused code.
+
+---------------------------
+Version: 1.0.20 :
+Deleted some unused code.
+
+---------------------------
+Version: 1.0.19 :
+Modified widget sanitization function.
+
+---------------------------
+Version: 1.0.18 :
+Modified body class function.
+
+---------------------------
+Version: 1.0.17 :
+Added new skin.
+
+---------------------------
+Version: 1.0.16 :
+Changed wp title function.
+
+---------------------------
+Version: 1.0.15 :
+Added new skin.
+
+---------------------------
+Version: 1.0.14 :
+Added new skin.
+
+---------------------------
+Version: 1.0.13 :
+Added new skin.
+
+---------------------------
+Version: 1.0.12 :
+Added new skin.
+
+---------------------------
+Version: 1.0.11 :
+Chnaged default skin, default header and screenshot.
+
+---------------------------
+Version: 1.0.10 :
+Modified credit link.
+
+---------------------------
+Version: 1.0.9 :
+Added a new skin.
+
+---------------------------
+Version: 1.0.8 :
+Added a new skin.
+
+---------------------------
+Version: 1.0.7 :
+Added a new skin.
+
+---------------------------
+Version: 1.0.6 :
+Added a new skin.
+
+---------------------------
+Version: 1.0.5 :
+Added a new skin.
+
+
+---------------------------
+Version: 1.0.4.1 :
+Added some default images.
+
+
+---------------------------
+Version: 1.0.4 :
+Minor change to options framework.
+
+
+---------------------------
+Version: 1.0.0 :
+Initial release.
