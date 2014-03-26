@@ -33,6 +33,9 @@ if(!class_exists('News_Plugin')) {
         public function __construct() {
             add_action('admin_init', array(&$this, 'admin_init'));
             add_action('admin_menu', array(&$this, 'add_menu'));
+
+            include(sprintf("%s/post-types/news.php", dirname(__FILE__)));
+            $News = new News();
         } // END public function __construct
 
         /**
