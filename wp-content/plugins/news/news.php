@@ -51,6 +51,44 @@ if(!class_exists('News_Plugin')) {
         public static function deactivate() {
 
         } // END public static function deactivate
+
+        /**
+         * hook into WP's admin_init action hook
+         */
+        public function admin_init() {
+            // Set up the settings for this plugin
+            $this->init_settings();
+            // Possibly do additional admin_init tasks
+        } // END public static function activate
+
+        /**
+         * Initialize some custom settings
+         */
+        public function init_settings() {
+            // register the settings for this plugin
+            register_setting('news_plugin-group', 'setting_a');
+            register_setting('news_plugin-group', 'setting_b');
+        } // END public function init_custom_settings()
+
+        /**
+         * add a menu
+         */
+        public function add_menu() {
+            add_options_page('News Plugin Settings', 'News Plugin', 'manage_options', 'wp_plugin_template', array(&$this, 'plugin_settings_page'));
+        } // END public function add_menu()
+
+        /**
+         * Menu Callback
+         */
+        public function plugin_settings_page() {
+            // if(!current_user_can('manage_options')) {
+            //    wp_die(__('You do not have sufficient permissions to access this page.'));
+            // }
+
+            // Render the settings template
+            include(sprintf("%s/templates/settings.php", dirname(__FILE__)));
+        } // END public function plugin_settings_page()
+
     } // END class News_Plugin
 } // END if(!class_exists('News_Plugin'))
 
@@ -61,6 +99,19 @@ if(class_exists('News_Plugin')) {
 
     // instantiate the plugin class
     $news_plugin = new News_Plugin();
+    // Add a link to the settings page onto the plugin page
+
+    if(isset($news_plugin)) {
+    // Add the settings link to the plugins page
+        function plugin_settings_link($links) {
+            $settings_link = '<a href="options-general.php?page=news">Settings</a>';
+            array_unshift($links, $settings_link);
+            return $links;
+        }
+
+        $plugin = plugin_basename(__FILE__);
+        add_filter("plugin_action_links_$plugin", 'plugin_settings_link');
+    }
 }
 
 ?>
