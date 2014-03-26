@@ -6,7 +6,7 @@ Description: A simple customized Post
 Version: 0.1
 Author: Hainp
 Author URI: http://
-License: GPL2
+License: GPL2 or later
 */
 
 /*  Copyright 2014  Hainp  (email : hai.nguyen@volcano.vn)
