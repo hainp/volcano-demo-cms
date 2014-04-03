@@ -1,0 +1,26 @@
+/*   
+Theme Name: BLANK Theme
+Theme URI: http://digwp.com
+Description: This is just a BLANK starter WordPress Theme template -- WordPress v3.0.1
+Author: Chris Coyier
+Author URI: http://chriscoyier.net
+Version: 2
+*/
+#footer{
+	background: #F1F1F1;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+.navbar-brand{
+	padding: 20px 20px 35px 20px;
+	font-family: Nosegrind Demo;
+	font-size: 40px;
+}
+
+.btn-sm{
+	margin-left: 14px;
+}
+.panel-title{
+	font-size: 20px;
+} /* END print media */
