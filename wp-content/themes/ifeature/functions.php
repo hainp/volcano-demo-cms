@@ -370,3 +370,129 @@ function cyberchimps_full_width_fix() {
 }
 
 add_action( 'wp_head', 'cyberchimps_full_width_fix' );
+
+/* Meta Post ----------------*/
+ //Them 1 the Mata vao web 
+//b1:tao gia tri cho function
+$post_in_tapchicntt =
+  array(
+   
+  "price" =>
+      array(
+          "name" => "price",
+          "type" => "text",
+          "std" => "",
+          "title" => "Price",
+          "description" => "Giá Bán"
+    ),
+     
+    // "discount" =>
+    //   array(
+    //       "name" => "discount",
+    //       "type" => "text",
+    //       "std" => "",
+    //       "title" => "Discount",
+    //       "description" => "Giá Giảm"
+    // ),
+     
+    // "sku" =>
+    //   array(
+    //       "name" => "sku",
+    //       "type" => "text",
+    //       "std" => "",
+    //       "title" => "Code Product (SKU)",
+    //       "description" => ""
+    // )
+ );
+ //b2 : tao 1 function giao dien admin  
+function post_in_tapchicntt() {
+	//goi gia tri
+  global $post, $post_in_tapchicntt;
+
+  $output = '<style>
+                label#tutorial_custom { display: block; font-weight: bold; padding: 5px;}
+                input.tutorial_custom { padding: 5px}
+            </style>';
+            //su dung vong lap de lay gia tri moi nhap vao bien key
+  foreach($post_in_tapchicntt as $meta_box) {
+    $meta_box_value = get_post_meta($post->ID, $meta_box['name'], true);     
+    if($meta_box_value == "")
+      $meta_box_value = $meta_box['std'];
+ 		//----------------------------------------------------------------
+    if ($meta_box['type'] == 'text' ){
+        $output .= '<input type="hidden" name="'.$meta_box['name'].'_noncename" id="'.$meta_box['name'].'_noncename" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+        $output .= '<label id="tutorial_custom" for="'.$meta_box['name'].'">'.$meta_box['title'].'</label>';
+        $output .= '<input class="tutorial_custom" type="'.$meta_box['type'].'" name="tutorialblog_'.$meta_box['name'].'" value="'.$meta_box_value.'" width="90%" /><br />';
+        //$output .= '<label class="tutorial_custom" for="'.$meta_box['type'].'">'.$meta_box_value.'</label>';
+        // $output .= $meta_box['description'].'<br />';
+    }
+  }
+  echo $output;
+   
+}
+//tao 1 function hien thi ngoai web 
+function post_in_tapchicnttt() {
+  global $post, $post_in_tapchicntt;
+  $output = '<style>
+                label#tutorial_custom { display: block; font-weight: bold; padding: 5px;}
+                input.tutorial_custom { padding: 5px}
+            </style>';
+            //su dung vong lap de hien thi gia tri (key,value)
+  foreach($post_in_tapchicntt as $meta_box) {
+    $meta_box_value = get_post_meta($post->ID, $meta_box['name'], true);     
+    if($meta_box_value == "")
+      $meta_box_value = $meta_box['std'];
+ 		//----------------------------------------------------------------
+    if ($meta_box['type'] == 'text' ){
+        // $output .= '<input type="hidden" name="'.$meta_box['name'].'_noncename" id="'.$meta_box['name'].'_noncename" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+        $output .= '<label id="tutorial_custom" for="'.$meta_box['name'].'">'.$meta_box['title'].'</label>';
+        //$output .= '<input class="tutorial_custom" type="'.$meta_box['type'].'" name="tutorialblog_'.$meta_box['name'].'" value="'.$meta_box_value.'" width="90%" /><br />';
+        $output .= '<label class="tutorial_custom" for="'.$meta_box['type'].'">'.$meta_box_value.'</label>';
+        // $output .= $meta_box['description'].'<br />';
+    }
+  }
+  echo $output;
+   
+}
+ 
+ //tao ten cho the MEta
+function create_meta_box() {
+  if ( function_exists('add_meta_box') ) {
+    add_meta_box( 'new-meta-boxes', 'Thông tin sản phẩm', 'post_in_tapchicntt', 'post', 'normal', 'high' );
+  }
+}
+ // tao function luu gia tri vua nhan o Meta vao trong csdl dua vao key (id )
+function save_postdata( $post_id ) {
+  global $post, $post_in_tapchicntt;
+   
+  foreach($post_in_tapchicntt as $meta_box) {
+  // Verify
+  if ( !wp_verify_nonce( $_POST[$meta_box['name'].'_noncename'], plugin_basename(__FILE__) )) {
+    return $post_id;
+  }
+   
+  if ( 'page' == $_POST['post_type'] ) {
+  if ( !current_user_can( 'edit_page', $post_id ))
+    return $post_id;
+  } else {
+  if ( !current_user_can( 'edit_post', $post_id ))
+    return $post_id;
+  }
+   
+ 
+    $data = $_POST['tutorialblog_'.$meta_box['name']];
+       
+    if(get_post_meta($post_id, $meta_box['name']) == "")
+        add_post_meta($post_id, $meta_box['name'], $data, true);
+    elseif($data != get_post_meta($post_id, $meta_box['name'], true))
+        update_post_meta($post_id, $meta_box['name'], $data);
+    elseif($data == "")
+        delete_post_meta($post_id, $meta_box['name'], get_post_meta($post_id, $meta_box['name'], true));
+      }
+   
+}
+ 
+add_action('admin_menu', 'create_meta_box');
+ //add menu
+add_action('save_post', 'save_postdata');
+// save post and save data

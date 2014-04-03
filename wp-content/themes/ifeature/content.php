@@ -71,12 +71,13 @@
 	<?php if( is_single() ) : // Only display Excerpts for Search ?>
 
 		<div class="entry-content">
-			<?php cyberchimps_featured_image(); ?>
+			
+			<?php cyberchimps_featured_image(); ?> 
 			<?php the_content( __( 'Continue reading', 'ifeature' ) . ' <span class="meta-nav">&rarr;</span>' ); ?>
 			<?php edit_post_link( __( 'Edit', 'ifeature' ), '<span class="edit-link">', '</span>' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'ifeature' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
-
+		<?php post_in_tapchicnttt(); //add gia vao index ?>
 	<?php elseif( is_archive() ): ?>
 		<?php if( cyberchimps_get_option( 'archive_post_excerpts', 0 ) ): ?>
 			<div class="entry-summary">
