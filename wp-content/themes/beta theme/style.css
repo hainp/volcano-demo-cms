@@ -1,0 +1,56 @@
+/*   
+Theme Name: Nam Theme URI: http://digwp.com
+Description: This is just a BLANK starter WordPress Theme template -- WordPress v3.0.1
+Author: Chris Coyier
+Author URI: http://chriscoyier.net
+Version: 2
+*/
+#footer{
+	background: #F1F1F1;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+.navbar-brand{
+	padding: 20px 20px 35px 20px;
+	font-family: Nosegrind Demo;
+	font-size: 40px;
+}
+
+.btn-success{
+	margin-left: 14px;
+	font-size: 10px;
+}
+.panel-title{
+	font-size: 20px;
+} /* END print media */
+.meta{
+	margin-left: 30px;
+	color: #919191;
+	font-size: 14px;
+	font-family: Verdana;
+}
+.panel-body p{
+	font-size: 14px;
+	font-family: Verdana;
+	color:#616161;
+	margin: 15px 15px;
+	line-height: 25px;
+}
+.panel-heading h2{
+	margin-left: 15px;
+	font-size: 38px;
+	color:#616161;
+	font-family: Yanone Kaffeesatz;
+}
+.panel-heading h4{
+	color:#616161;
+	font-family: Yanone Kaffeesatz;
+	line-height:33.6px;
+	font-size: 20px;
+	margin-left: 15px;
+}
+.col-md-12 content{
+	box-shadow: 10px 10px 5px #888888;
+
+}
