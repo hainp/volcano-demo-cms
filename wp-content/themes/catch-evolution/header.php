@@ -61,6 +61,7 @@ do_action( 'catchevolution_before' ); ?>
 		 */
 		do_action( 'catchevolution_before_headercontent' ); ?>
         
+        
     	<div id="header-content" class="clearfix">
         
         	<div class="wrapper">
@@ -72,6 +73,7 @@ do_action( 'catchevolution_before' ); ?>
                  * @hooked catchevolution_header_rightpsidebar - 15
                  */
                 do_action( 'catchevolution_headercontent' ); ?>
+
             </div><!-- .wrapper -->
             
       	</div><!-- #header-content -->

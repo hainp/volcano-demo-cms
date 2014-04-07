@@ -18,7 +18,9 @@ get_header(); ?>
 
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-
+					<?php 
+    echo do_shortcode("[metaslider id=30]"); 
+?>
 					<?php get_template_part( 'content', get_post_format() ); ?>
 
 				<?php endwhile; ?>
@@ -29,6 +31,7 @@ get_header(); ?>
 
 				<article id="post-0" class="post no-results not-found">
 					<header class="entry-header">
+
 						<h1 class="entry-title"><?php _e( 'Nothing Found', 'catchevolution' ); ?></h1>
 					</header><!-- .entry-header -->
 
@@ -44,4 +47,5 @@ get_header(); ?>
 		</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
+
 <?php get_footer(); ?>
