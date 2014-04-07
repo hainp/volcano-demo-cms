@@ -386,14 +386,14 @@ $post_in_tapchicntt =
           "description" => "Giá Bán"
     ),
      
-    // "discount" =>
-    //   array(
-    //       "name" => "discount",
-    //       "type" => "text",
-    //       "std" => "",
-    //       "title" => "Discount",
-    //       "description" => "Giá Giảm"
-    // ),
+    "discount" =>
+      array(
+          "name" => "discount",
+          "type" => "text",
+          "std" => "",
+          "title" => "Discount",
+          "description" => "Giá Giảm"
+    ),
      
     // "sku" =>
     //   array(

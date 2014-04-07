@@ -77,7 +77,10 @@
 			<?php edit_post_link( __( 'Edit', 'ifeature' ), '<span class="edit-link">', '</span>' ); ?>
 			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'ifeature' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
+		<div>
+		<h3>Giá Sản Phẩm </h3>
 		<?php post_in_tapchicnttt(); //add gia vao index ?>
+		</div>
 	<?php elseif( is_archive() ): ?>
 		<?php if( cyberchimps_get_option( 'archive_post_excerpts', 0 ) ): ?>
 			<div class="entry-summary">
